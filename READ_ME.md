@@ -1,91 +1,20 @@
-# How to perform CRUD operations with AWS buckets using python
+# All things S3
 
-You will need to install python library called 'boto3' to interact with aws buckets, To do this:
+## What is S3 and it's use cases
 
-- Run `pip install boto3` in relevant directory
+- S3 is one of the first services produced by AWS. It stands for Simple Storage Service.
+- S3 provides developers and IT teams with secure, durable, highly scalable object storage.
+- It is easy to use with a simple web services interface to store and retrieve any amount of data from anywhere on the web.
+- It's a program that’s built to store, protect, and retrieve data from “buckets” at any time from anywhere on any device.
 
-## Access S3
+S3 use cases:
 
-To access any bucket (in our case that is S3), create a python file 'access_s3.py'
+- Backup file system
+- Infrequent access, reduced redundancya and archval storage
+- Host static website
+- Create private local repository
+- Improve file sharing
 
-1. Import boto3 with `import boto3`
-2. Connect with your bucket using the `resource` module, e.g.:
+## To Perform CRUD operations on S3 buckets using python, you can follow the guide [here](./s3-crud-python.md)
 
-- `s3 = boto3.resource("s3")`
-
-3. To obtain a list of buckets within this resource, create a for loop:
-
-- `for bucket in s3.buckets.all():
-print(bucket.name)`
-
-## Create Bucket
-
-import boto3
-
-# connect to s3
-
-```
-s3 = boto3.client("s3")
-
-#create a bucket on s3
-bucket_name = s3.create_bucket(Bucket = "tech230-ahmed-boto", CreateBucketConfiguration = {"LocationConstraint": "eu-west-1"})
-
-print(bucket_name)
-```
-
-## Upload to Bucket
-
-```
-import boto3
-
-# connect to s3
-s3 = boto3.resource("s3")
-
-# open the file we want to send, store it in a variable called data
-data = open("sampletext.txt", "rb")
-
-# specify what bucket we are sending the file to, .put_object names the file and sends it's contents
-s3.Bucket("tech230-ahmed-boto").put_object(Key="sampletext.txt", Body=data)
-```
-
-## Download from Bucket
-
-```
-import boto3
-
-# connect to s3
-s3 = boto3.client("s3")
-
-
-# download from s3 bucket
-s3.download_file("tech230-ahmed-boto", "sampletext.txt", "sampletext1.txt")
-
-print(s3.download_file)
-```
-
-## Delete from Bucket
-
-```
-import boto3
-
-# connect to s3
-s3 = boto3.resource("s3")
-
-# delete file in a specfic bucket
-s3.Object("tech230-ahmed-boto", "sampletext.txt").delete()
-```
-
-## Delete Bucket
-
-```
-import boto3
-
-# connect to s3
-s3 = boto3.resource("s3")
-
-#
-bucket = s3.Bucket("tech230-ahmed-boto")
-response = bucket.delete()
-
-print(response)
-```
+## To Perform CRUD operations within EC2 instances, yuo can follow the guide [here](./s3-ec2.md)
