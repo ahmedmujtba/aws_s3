@@ -88,4 +88,26 @@ aws s3 rm s3://tech230-ahmeds-bucket/sampletext.txt
 
 Output:
 
-![alt text](./assets/download-bucket.png)
+![alt text](./assets/delete-file.png)
+
+### To delete all contents of a bucket
+
+- Run the commands below to delete all the contents from a bucket
+
+```
+aws s3 rm s3://tech230-ahmeds-bucket --recursive
+```
+
+### To delete an entire bucket
+
+Note: You can only delete a bucket once it is empty
+
+Run:
+
+```
+aws s3 rb s3://tech230-ahmeds-bucket
+```
+
+Output:
+
+![alt text](./assets/remove-bucket.png)
