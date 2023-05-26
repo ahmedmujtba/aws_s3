@@ -77,3 +77,15 @@ aws s3 sync s3://tech230-ahmeds-bucket s3_downloads
 Output:
 
 ![alt text](./assets/download-bucket.png)
+
+### To delete a file from a bucket
+
+- Run the commands below to delete a file from a bucket
+
+```
+aws s3 rm s3://tech230-ahmeds-bucket/sampletext.txt
+```
+
+Output:
+
+![alt text](./assets/download-bucket.png)
